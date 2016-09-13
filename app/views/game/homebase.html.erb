@@ -1,1 +1,5 @@
-hello!
+<h2>Hello <%= @user.email %></h2>
+<h3>Inventory</h3>
+<% @player_items.each do |player_item|%>
+  <p><%= player_item.item.name %>: <%= player_item.quantity %></p>
+<% end %>

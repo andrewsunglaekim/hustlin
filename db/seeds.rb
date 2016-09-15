@@ -25,3 +25,9 @@ end
     end
   end
 end
+
+store = Store.create(name: "The Store")
+
+Item.all.each do |item|
+  StoreItem.create(item: item, store: store)
+end

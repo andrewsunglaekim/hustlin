@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160915125021) do
   create_table "store_items", force: :cascade do |t|
     t.integer  "store_id"
     t.integer  "item_id"
+    t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_store_items_on_item_id", using: :btree

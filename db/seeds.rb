@@ -8,6 +8,7 @@
 
 User.destroy_all
 Item.destroy_all
+Store.destroy_all
 
 5.times do |i|
   User.create(email: "user#{i}@email.com", password: "password", age: rand(500))
@@ -29,5 +30,5 @@ end
 store = Store.create(name: "The Store")
 
 Item.all.each do |item|
-  StoreItem.create(item: item, store: store)
+  StoreItem.create(item: item, store: store, quantity: rand(10))
 end

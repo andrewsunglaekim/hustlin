@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'react_on_rails' , '~>6'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'

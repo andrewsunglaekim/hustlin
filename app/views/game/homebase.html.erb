@@ -3,3 +3,4 @@
 <% @player_items.each do |player_item|%>
   <p><%= player_item.item.name %>: <%= player_item.quantity %></p>
 <% end %>
+<%= react_component("HomeBaseApp", prerender: false) %>

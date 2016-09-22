@@ -11,7 +11,7 @@ Item.destroy_all
 Store.destroy_all
 
 5.times do |i|
-  User.create(email: "user#{i}@email.com", password: "password", age: rand(500))
+  User.create(email: "user#{i}@email.com", password: "password", age: rand(500), money: rand(1000))
 end
 
 10.times do |i|

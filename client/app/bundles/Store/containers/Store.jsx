@@ -1,9 +1,13 @@
 import React, {Component} from 'react'
+import StoreModel from '../../../models/store'
 import UserInventory from '../../Inventory/containers/UserInventory'
 import StoreInventory from '../../Inventory/containers/StoreInventory'
 
 class Store extends Component{
   constructor(props){
+    StoreModel.getStore().then(function(res){
+      console.log(res);
+    })
     console.log(props);
     super(props)
     this.state = {}

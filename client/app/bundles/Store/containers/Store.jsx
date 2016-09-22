@@ -13,10 +13,11 @@ class Store extends Component{
       <div>
         <div className="userInventory">
           <h2>My Inventory</h2>
+          <h3>My Money: {this.props.user.money}</h3>
           <UserInventory items={this.props.player_items}/>
         </div>
         <div className="store">
-          <h1>{this.props.name}</h1>
+          <h2>{this.props.name}</h2>
           <StoreInventory items={this.props.store_items} />
         </div>
       </div>

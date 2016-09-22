@@ -11,7 +11,8 @@ class HomeBase extends Component {
   render() {
     return (
       <div>
-        This is the homebase
+        <h1>My Home</h1>
+        <h2>My Money: {this.props.user.money}</h2>
         <UserInventory items={this.props.player_items}/>
       </div>
     );

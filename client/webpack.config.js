@@ -10,6 +10,7 @@ const config = {
     'es5-shim/es5-sham',
     'babel-polyfill',
     './app/bundles/HomeBase/startup/HomeBaseApp',
+    './app/bundles/Store/startup/StoreApp',
   ],
 
   output: {

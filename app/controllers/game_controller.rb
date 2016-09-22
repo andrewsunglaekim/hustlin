@@ -15,4 +15,8 @@ class GameController < ApplicationController
       player_items: @player_items
     }
   end
+
+  def store
+
+  end
 end

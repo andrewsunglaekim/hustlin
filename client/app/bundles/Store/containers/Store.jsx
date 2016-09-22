@@ -5,10 +5,6 @@ import StoreInventory from '../../Inventory/containers/StoreInventory'
 
 class Store extends Component{
   constructor(props){
-    StoreModel.getStore().then(function(res){
-      console.log(res);
-    })
-    console.log(props);
     super(props)
     this.state = {}
   }
@@ -22,7 +18,9 @@ class Store extends Component{
         </div>
         <div className="store">
           <h2>{this.props.name}</h2>
-          <StoreInventory items={this.props.store_items} />
+          <StoreInventory
+            items={this.props.store_items}
+            itemType={"store"}/>
         </div>
       </div>
     )

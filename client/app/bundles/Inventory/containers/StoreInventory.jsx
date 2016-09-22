@@ -3,14 +3,16 @@ import InventoryItem from '../components/InventoryItem'
 
 class StoreInventory extends Component {
   constructor(props){
+    console.log(props);
     super(props)
   }
   render(){
-    var inventoryItems = this.props.items.map(function(item){
+    var inventoryItems = this.props.items.map((item) => {
       return (
         <InventoryItem
           key={item.id}
-          item={item} />
+          item={item}
+          itemType={this.props.itemType} />
       )
     })
     return(

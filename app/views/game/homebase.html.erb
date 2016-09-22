@@ -1,7 +1,1 @@
-<h2>Hello <%= @user.email %></h2>
-<h3>Inventory</h3>
-<% @player_items.each do |player_item|%>
-  <p><%= player_item[:name] %>: <%= player_item[:quantity] %></p>
-<% end %>
-
 <%= react_component("HomeBaseApp", props: @homebase_props, prerender: false) %>

@@ -5,8 +5,6 @@ import UserInventory from '../../Inventory/containers/UserInventory'
 class HomeBase extends Component {
   constructor(props, context) {
     console.log("hello");
-    console.log(props);
-    console.log(context);
     super(props, context);
     this.state = {};
   }
@@ -14,7 +12,7 @@ class HomeBase extends Component {
     return (
       <div>
         This is the homebase
-        <UserInventory />
+        <UserInventory items={this.props.player_items}/>
       </div>
     );
   }

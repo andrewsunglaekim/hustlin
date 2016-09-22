@@ -14,7 +14,7 @@ Store.destroy_all
   User.create(email: "user#{i}@email.com", password: "password", age: rand(500))
 end
 
-5.times do |i|
+10.times do |i|
   Item.create(name: Faker::Space.moon, value: rand(100))
 end
 

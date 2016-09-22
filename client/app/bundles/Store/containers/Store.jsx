@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 
 class Store extends Component{
   constructor(props){
+    console.log(props);
     super(props)
     this.state = {}
   }

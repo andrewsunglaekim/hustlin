@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is in extreme early alpha. If you'd like to contribute fork and clone this repo
 
-Things you may want to cover:
+## Setup:
 
-* Ruby version
+```bash
+$ bundle && npm install
+$ rake db:create migrate seed
+$ foreman start -f Procfile.dev
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Login as any user in seed file (ex. user: user1@email.com, password: password)
+and visit http://localhost:3000/home

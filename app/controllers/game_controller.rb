@@ -36,6 +36,7 @@ class GameController < ApplicationController
       }
     end
     @store_props = {
+      name: @store.name,
       user: current_user,
       player_items: @player_items,
       store_items: @store_items

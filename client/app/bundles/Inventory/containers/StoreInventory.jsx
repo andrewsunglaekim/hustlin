@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import InventoryItem from '../components/InventoryItem'
 
-class UserInventory extends Component {
+class StoreInventory extends Component {
   constructor(props){
     super(props)
   }
@@ -13,12 +13,12 @@ class UserInventory extends Component {
           item={item} />
       )
     })
-    return (
-      <div className="player items">
+    return(
+      <div className="store items">
         {inventoryItems}
       </div>
     )
   }
 }
 
-export default UserInventory
+export default StoreInventory

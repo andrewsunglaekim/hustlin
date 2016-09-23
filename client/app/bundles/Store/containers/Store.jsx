@@ -8,8 +8,13 @@ class Store extends Component{
     super(props)
     this.state = {}
   }
-  sellItem(itemId, quantity){
-    console.log(itemId);
+  sellItem(storeItemId, quantity){
+    let data = {storeItemId, quantity}
+    let storeId = this.props.id
+    StoreModel.sellItem(storeId, data).then(function(){
+      console.log("success!");
+    })
+    console.log(storeItemId);
     console.log(quantity);
     console.log("selling item");
   }

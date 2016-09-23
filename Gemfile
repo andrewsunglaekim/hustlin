@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'pry'
 gem 'react_on_rails' , '~>6'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -18,10 +18,12 @@ class InventoryItem extends Component {
       alert("Not enough of that item, or not enough money")
     }
     else {
-      let itemId = this.props.item.id
+      let storeItemId = this.props.item.id
       let quantity = this.state.quantity
-      this.props.onTransaction(itemId, quantity)
-      console.log("form submitted");
+      this.props.onTransaction(storeItemId, quantity)
+      this.setState({
+        quantity: ""
+      })
     }
   }
   isInvalidQuantity(){

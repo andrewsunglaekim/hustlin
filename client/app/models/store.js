@@ -13,6 +13,14 @@ class Store {
     })
     return request
   }
+  static purchaseItem(storeId, data){
+    let request = axios({
+      method: 'put',
+      url: `store/${storeId}/purchase_item`,
+      data: data
+    })
+    return request
+  }
 }
 
 export default Store

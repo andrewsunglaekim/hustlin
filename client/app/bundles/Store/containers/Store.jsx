@@ -17,7 +17,6 @@ class Store extends Component{
     let data = {storeItemId, quantity}
     let storeId = this.props.id
     StoreModel.sellItem(storeId, data).then(function(res){
-      console.log(res);
       let playerItems = this.state.playerItems
       let playerItem = playerItems.find(function(playerItem){ return playerItem.id === res.data.playerItem.id})
       if (playerItem) {
@@ -37,7 +36,25 @@ class Store extends Component{
   }
   purchaseItem(playerItemId, quantity){
     let data = {playerItemId, quantity}
-    console.log(data);
+    let storeId = this.props.id
+    StoreModel.purchaseItem(storeId, data).then(function(res){
+      let storeItems = this.state.storeItems
+      let storeItem = storeItems.find(function(storeItem){ return storeItem.id === res.data.storeItem.id})
+      if (storeItem) {
+        storeItem.quantity = res.data.storeItem.quantity
+      } else {
+        storeItems.push(res.data.storeItem)
+      }
+      console.log(res);
+      let playerItems = this.state.playerItems
+      let playerItem = playerItems.find(function(playerItem){ return playerItem.id === playerItemId})
+      playerItem.quantity = res.data.playerItemQuantity
+      this.setState({
+        userMoney: res.data.money,
+        storeItems: storeItems,
+        playerItems: playerItems
+      })
+    }.bind(this))
   }
   render() {
     return (

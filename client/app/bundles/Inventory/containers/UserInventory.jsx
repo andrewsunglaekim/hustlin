@@ -11,7 +11,8 @@ class UserInventory extends Component {
         <InventoryItem
           key={item.id}
           item={item}
-          itemType={this.props.itemType} />
+          itemType={this.props.itemType}
+          onTransaction={this.props.onPurchaseItem}/>
       )
     }.bind(this))
     return (

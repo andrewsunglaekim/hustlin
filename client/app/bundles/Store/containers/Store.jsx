@@ -35,6 +35,10 @@ class Store extends Component{
       })
     }.bind(this))
   }
+  purchaseItem(storeItemId, quantity){
+    let data = {storeItemId, quantity}
+    console.log(data);
+  }
   render() {
     return (
       <div>
@@ -42,7 +46,8 @@ class Store extends Component{
           <UserInventory
             money={this.state.userMoney}
             items={this.state.playerItems}
-            itemType={"userInStore"}/>
+            itemType={"userInStore"}
+            onPurchaseItem={this.purchaseItem.bind(this)}/>
         </div>
         <div className="store">
           <StoreInventory

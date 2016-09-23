@@ -13,9 +13,7 @@ class InventoryItem extends Component {
     })
   }
   onSubmit(event){
-
     event.preventDefault()
-    console.log("this.state.quantity: ", this.state.quantity);
     if (this.isInvalidQuantity() || this.isNotEnoughMoney()){
       alert("Not enough of that item, or not enough money")
     }

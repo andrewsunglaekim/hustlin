@@ -18,13 +18,14 @@ class Store extends Component{
     let storeId = this.props.id
     StoreModel.sellItem(storeId, data).then(function(res){
       console.log(res);
-      let storeItems = this.state.store_items
+      let storeItems = this.state.storeItems
       let storeItem = storeItems.find(function(storeItem){ return storeItem.id === storeItemId})
       storeItem.quantity = res.data.quantity
       this.setState({
-
+        userMoney: res.data.money,
+        storeItems: storeItems
       })
-    })
+    }.bind(this))
     console.log(storeItemId);
     console.log(quantity);
     console.log("selling item");

@@ -13,17 +13,21 @@ class InventoryItem extends Component {
     })
   }
   onSubmit(event){
+
     event.preventDefault()
+    console.log("this.state.quantity: ", this.state.quantity);
     if (this.isInvalidQuantity() || this.isNotEnoughMoney()){
       alert("Not enough of that item, or not enough money")
     }
     else {
       let storeItemId = this.props.item.id
       let quantity = this.state.quantity
-      this.props.onTransaction(storeItemId, quantity)
+      console.log("before set state in form");
       this.setState({
         quantity: ""
       })
+      console.log("after set state in form");
+      this.props.onTransaction(storeItemId, quantity)
     }
   }
   isInvalidQuantity(){
@@ -44,7 +48,8 @@ class InventoryItem extends Component {
           <form onSubmit={e => this.onSubmit(e)} >
             <input
               type="text"
-              onChange={e => this.onChange(e)} />
+              onChange={e => this.onChange(e)}
+              value={(this.state.quantity)}/>
           </form>
         </div>
       )

@@ -35,8 +35,8 @@ class Store extends Component{
       })
     }.bind(this))
   }
-  purchaseItem(storeItemId, quantity){
-    let data = {storeItemId, quantity}
+  purchaseItem(playerItemId, quantity){
+    let data = {playerItemId, quantity}
     console.log(data);
   }
   render() {

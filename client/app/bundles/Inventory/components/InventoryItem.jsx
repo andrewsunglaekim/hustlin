@@ -18,14 +18,14 @@ class InventoryItem extends Component {
       alert("Not enough of that item, or not enough money")
     }
     else {
-      let storeItemId = this.props.item.id
+      let joinItemId = this.props.item.id
       let quantity = parseInt(this.state.quantity)
       console.log("before set state in form");
       this.setState({
         quantity: ""
       })
       console.log("after set state in form");
-      this.props.onTransaction(storeItemId, quantity)
+      this.props.onTransaction(joinItemId, quantity)
     }
   }
   isInvalidQuantity(){

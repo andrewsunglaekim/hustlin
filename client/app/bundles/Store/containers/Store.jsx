@@ -6,13 +6,24 @@ import StoreInventory from '../../Inventory/containers/StoreInventory'
 class Store extends Component{
   constructor(props){
     super(props)
-    this.state = {}
+    this.state = {
+      userMoney: props.user.money,
+      playerItems: props.player_items,
+      name: props.name ,
+      storeItems: props.store_items
+    }
   }
   sellItem(storeItemId, quantity){
     let data = {storeItemId, quantity}
     let storeId = this.props.id
     StoreModel.sellItem(storeId, data).then(function(res){
       console.log(res);
+      let storeItems = this.state.store_items
+      let storeItem = storeItems.find(function(storeItem){ return storeItem.id === storeItemId})
+      storeItem.quantity = res.data.quantity
+      this.setState({
+
+      })
     })
     console.log(storeItemId);
     console.log(quantity);
@@ -23,14 +34,14 @@ class Store extends Component{
       <div>
         <div className="userInventory">
           <h2>My Inventory</h2>
-          <h3>My Money: {this.props.user.money}</h3>
-          <UserInventory items={this.props.player_items}/>
+          <h3>My Money: {this.state.userMoney}</h3>
+          <UserInventory items={this.state.playerItems}/>
         </div>
         <div className="store">
           <h2>{this.props.name}</h2>
           <StoreInventory
-            playerMoney={this.props.user.money}
-            items={this.props.store_items}
+            playerMoney={this.state.userMoney}
+            items={this.state.storeItems}
             itemType={"store"}
             onSellItem={this.sellItem.bind(this)}/>
         </div>

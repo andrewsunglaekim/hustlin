@@ -15,10 +15,18 @@ class InventoryItem extends Component {
   }
   onSubmit(event){
     event.preventDefault()
-    let itemId = this.props.item.id
-    let quantity = this.state.quantity
-    this.props.onTransaction(itemId, quantity)
-    console.log("form submitted");
+    if (this.isInvalidQuantity()){
+      alert("Can't buy what's not there!")
+    }
+    else {
+      let itemId = this.props.item.id
+      let quantity = this.state.quantity
+      // this.props.onTransaction(itemId, quantity)
+      console.log("form submitted");
+    }
+  }
+  isInvalidQuantity(){
+    return this.state.quantity > this.props.item.quantity
   }
   render(){
     let {name, quantity, value} = this.props.item

@@ -19,6 +19,7 @@ class Store extends Component{
         <div className="store">
           <h2>{this.props.name}</h2>
           <StoreInventory
+            playerMoney={this.props.user.money}
             items={this.props.store_items}
             itemType={"store"}/>
         </div>

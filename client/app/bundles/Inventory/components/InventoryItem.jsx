@@ -14,17 +14,16 @@ class InventoryItem extends Component {
   }
   onSubmit(event){
     event.preventDefault()
-    if (this.isInvalidQuantity() || this.isNotEnoughMoney()){
+    if (this.props.itemType === "userInStore" && this.isInvalidQuantity()){
+      alert("you don't have that many in your inventory")
+    } else if (this.isInvalidQuantity() || this.isNotEnoughMoney()){
       alert("Not enough of that item, or not enough money")
-    }
-    else {
+    } else {
       let joinItemId = this.props.item.id
       let quantity = parseInt(this.state.quantity)
-      console.log("before set state in form");
       this.setState({
         quantity: ""
       })
-      console.log("after set state in form");
       this.props.onTransaction(joinItemId, quantity)
     }
   }
@@ -32,10 +31,11 @@ class InventoryItem extends Component {
     return this.state.quantity > this.props.item.quantity
   }
   isNotEnoughMoney(){
+    if (this.props.itemType === "userInStore"){return false}
     let money = this.props.playerMoney
     let moneyOwed = this.state.quantity * this.props.item.value
-    let NotEnoughMoney = money < moneyOwed
-    return NotEnoughMoney
+    let notEnoughMoney = money < moneyOwed
+    return notEnoughMoney
   }
   render(){
     let {name, quantity, value} = this.props.item

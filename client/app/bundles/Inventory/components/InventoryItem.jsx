@@ -15,8 +15,8 @@ class InventoryItem extends Component {
   }
   onSubmit(event){
     event.preventDefault()
-    if (this.isInvalidQuantity()){
-      alert("Can't buy what's not there!")
+    if (this.isInvalidQuantity() || this.isNotEnoughMoney()){
+      alert("Not enough of that item, or not enough money")
     }
     else {
       let itemId = this.props.item.id
@@ -27,6 +27,14 @@ class InventoryItem extends Component {
   }
   isInvalidQuantity(){
     return this.state.quantity > this.props.item.quantity
+  }
+  isNotEnoughMoney(){
+    let money = this.props.playerMoney
+    let moneyOwed = this.state.quantity * this.props.item.value
+    console.log(money);
+    console.log(moneyOwed);
+    let NotEnoughMoney = money < moneyOwed
+    return NotEnoughMoney
   }
   render(){
     let {name, quantity, value} = this.props.item

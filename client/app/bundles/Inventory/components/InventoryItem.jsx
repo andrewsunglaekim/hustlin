@@ -9,7 +9,7 @@ class InventoryItem extends Component {
   }
   onChange(event){
     this.setState({
-      quantity: parseInt(event.target.value)
+      quantity: event.target.value
     })
   }
   onSubmit(event){
@@ -21,7 +21,7 @@ class InventoryItem extends Component {
     }
     else {
       let storeItemId = this.props.item.id
-      let quantity = this.state.quantity
+      let quantity = parseInt(this.state.quantity)
       console.log("before set state in form");
       this.setState({
         quantity: ""

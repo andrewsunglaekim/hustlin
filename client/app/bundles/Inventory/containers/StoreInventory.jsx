@@ -13,7 +13,8 @@ class StoreInventory extends Component {
           key={item.id}
           item={item}
           itemType={this.props.itemType}
-          playerMoney={this.props.playerMoney} />
+          playerMoney={this.props.playerMoney}
+          onTransaction={this.props.onSellItem} />
       )
     })
     return(

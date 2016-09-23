@@ -8,7 +8,6 @@ class InventoryItem extends Component {
     }
   }
   onChange(event){
-    console.log(event.target.value);
     this.setState({
       quantity: parseInt(event.target.value)
     })
@@ -21,7 +20,7 @@ class InventoryItem extends Component {
     else {
       let itemId = this.props.item.id
       let quantity = this.state.quantity
-      // this.props.onTransaction(itemId, quantity)
+      this.props.onTransaction(itemId, quantity)
       console.log("form submitted");
     }
   }
@@ -31,8 +30,6 @@ class InventoryItem extends Component {
   isNotEnoughMoney(){
     let money = this.props.playerMoney
     let moneyOwed = this.state.quantity * this.props.item.value
-    console.log(money);
-    console.log(moneyOwed);
     let NotEnoughMoney = money < moneyOwed
     return NotEnoughMoney
   }

@@ -8,6 +8,11 @@ class Store extends Component{
     super(props)
     this.state = {}
   }
+  sellItem(itemId, quantity){
+    console.log(itemId);
+    console.log(quantity);
+    console.log("selling item");
+  }
   render() {
     return (
       <div>
@@ -21,7 +26,8 @@ class Store extends Component{
           <StoreInventory
             playerMoney={this.props.user.money}
             items={this.props.store_items}
-            itemType={"store"}/>
+            itemType={"store"}
+            onSellItem={this.sellItem.bind(this)}/>
         </div>
       </div>
     )

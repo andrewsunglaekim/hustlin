@@ -43,7 +43,7 @@ class InventoryItem extends Component {
     let {name, quantity, value} = this.props.item
     if(this.props.itemType === "store"){
       return (
-        <div className="item sellable">
+        <div className="item store">
           <span>{name}</span><span>Quantity: {quantity}</span>
           <form onSubmit={e => this.onSubmit(e)} >
             <input
@@ -53,7 +53,19 @@ class InventoryItem extends Component {
           </form>
         </div>
       )
-    } else{
+    } else if (this.props.itemType === "userInStore") {
+      return (
+        <div>
+          <span>{name}</span><span>Quantity: {quantity}</span>
+          <form onSubmit={e => this.onSubmit(e)} >
+            <input
+              type="text"
+              onChange={e => this.onChange(e)}
+              value={(this.state.quantity)}/>
+          </form>
+        </div>
+      )
+    } else {
       return(
         <div className="item">
           <span>{name}</span><span>Quantity: {quantity}</span>

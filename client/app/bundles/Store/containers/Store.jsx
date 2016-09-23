@@ -34,21 +34,19 @@ class Store extends Component{
         playerItems: playerItems
       })
     }.bind(this))
-    console.log(storeItemId);
-    console.log(quantity);
-    console.log("selling item");
   }
   render() {
     return (
       <div>
         <div className="userInventory">
-          <h2>My Inventory</h2>
-          <h3>My Money: {this.state.userMoney}</h3>
-          <UserInventory items={this.state.playerItems}/>
+          <UserInventory
+            money={this.state.userMoney}
+            items={this.state.playerItems}
+            itemType={"userInStore"}/>
         </div>
         <div className="store">
-          <h2>{this.props.name}</h2>
           <StoreInventory
+            name={this.props.name}
             playerMoney={this.state.userMoney}
             items={this.state.storeItems}
             itemType={"store"}

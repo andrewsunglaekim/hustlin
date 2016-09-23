@@ -10,12 +10,17 @@ class UserInventory extends Component {
       return (
         <InventoryItem
           key={item.id}
-          item={item} />
+          item={item}
+          itemType={this.props.itemType} />
       )
-    })
+    }.bind(this))
     return (
       <div className="player items">
-        {inventoryItems}
+        <h2>My Inventory</h2>
+        <h3>My Money: {this.props.money}</h3>
+        <div className="items">
+          {inventoryItems}
+        </div>
       </div>
     )
   }

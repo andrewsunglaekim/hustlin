@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'hello_world', to: 'hello_world#index'
-  root to: "welcome#home"
+  root to: "game#homebase"
   get '/home' => "game#homebase"
   get '/store' => "game#store"
   get '/store/:id' => "stores#show"

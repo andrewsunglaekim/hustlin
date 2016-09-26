@@ -5,6 +5,7 @@ class StoresController < ApplicationController
   end
 
   def sell_item
+    increment_age 1
     @store = Store.find(params[:id])
     @store_item = StoreItem.find(params["storeItemId"])
     @item = @store_item.item
@@ -31,6 +32,7 @@ class StoresController < ApplicationController
   end
 
   def purchase_item
+    increment_age 1
     @store = Store.find(params[:id])
     @player_item = PlayerItem.find(params["playerItemId"])
     @item = @player_item.item

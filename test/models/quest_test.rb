@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MoneyQuestTest < ActiveSupport::TestCase
+class QuestTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

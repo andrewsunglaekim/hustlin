@@ -45,7 +45,6 @@ class Store extends Component{
       } else {
         storeItems.push(res.data.storeItem)
       }
-      console.log(res);
       let playerItems = this.state.playerItems
       let playerItem = playerItems.find(function(playerItem){ return playerItem.id === playerItemId})
       playerItem.quantity = res.data.playerItemQuantity

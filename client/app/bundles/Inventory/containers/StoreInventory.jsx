@@ -3,7 +3,6 @@ import InventoryItem from '../components/InventoryItem'
 
 class StoreInventory extends Component {
   constructor(props){
-    console.log(props);
     super(props)
   }
   render(){

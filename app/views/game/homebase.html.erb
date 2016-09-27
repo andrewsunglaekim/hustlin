@@ -1,2 +1,4 @@
 <%= react_component("HomeBaseApp", props: @homebase_props, prerender: false) %>
-<%= link_to 'Store' , "/store" %>
+<% @stores.each do |store| %>
+  <%= link_to store.name, "/store/#{store.id}" %>
+<% end %>

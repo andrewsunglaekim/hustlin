@@ -2,6 +2,7 @@ class GameController < ApplicationController
   before_action :authenticate_user!
   def homebase
     @user = current_user
+    @stores = current_user.get_accessible_stores
     @player_items = get_player_items
     @homebase_props = {
       user: @user,
@@ -12,7 +13,7 @@ class GameController < ApplicationController
   def store
     @player_items = get_player_items
     # TODO: obviously can't do Store.first, make multiple stores going forward, open up as you progress in the game
-    @store = Store.first
+    @store = Store.find(params[:id])
     @store_items = @store.store_items.map do |store_item|
       {
         id: store_item.id,

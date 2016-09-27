@@ -31,6 +31,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       # t.datetime :locked_at
       t.integer :age
       t.integer :money
+      t.integer :karma
 
 
       t.timestamps null: false

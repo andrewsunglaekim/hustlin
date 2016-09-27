@@ -3,6 +3,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
     create_table :items do |t|
       t.string :name
       t.integer :value
+      t.integer :karma
       t.timestamps
     end
   end

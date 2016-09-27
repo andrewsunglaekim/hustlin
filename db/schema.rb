@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160915125021) do
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.integer  "value"
+    t.integer  "karma"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,6 +49,8 @@ ActiveRecord::Schema.define(version: 20160915125021) do
   end
 
   create_table "stores", force: :cascade do |t|
+    t.integer  "min_age"
+    t.integer  "karma"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,6 +69,7 @@ ActiveRecord::Schema.define(version: 20160915125021) do
     t.inet     "last_sign_in_ip"
     t.integer  "age"
     t.integer  "money"
+    t.integer  "karma"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree

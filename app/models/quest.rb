@@ -6,7 +6,8 @@ class Quest < ApplicationRecord
     eligible_quests = []
     quests.each do |quest|
       # TODO: can only implement one requirement for quest
-      rule = QuestItemRule.find_by(quest: quest, rule: QuestItemRule.rules[:requirement])
+      is_eligible_quest = false
+      requirements = QuestItemRule.where(quest: quest, rule: QuestItemRule.rules[:requirement])
       player_item = PlayerItem.find_by(user: user, item: rule.item)
       if player_item && player_item.quantity >= rule.quantity
         eligible_quests << quest

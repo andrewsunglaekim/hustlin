@@ -9,8 +9,9 @@
 User.destroy_all
 Item.destroy_all
 Store.destroy_all
+Quest.destroy_all
 
-# TODO: these stores will eventually move to migrations as they become finalized for production
+# TODO: these stores will eventually move to migrations as they become finalized for production, in fact much of this data needs to move out of seeds
 # First Store Items
 pencil = Item.create(name: "pencil", value: 2, karma: 0)
 lemon = Item.create(name: "lemon", value: 4, karma: 0)
@@ -33,9 +34,11 @@ end
 end
 
 older_user = User.create(email: "old_user@email.com", password: "password", age: 300, money: rand(500), karma: rand(10))
+PlayerItem.create(user: older_user, item: pencil, quantity: 3)
 teenager_store = Store.create(name: "The Mall", karma: nil, min_age: 200)
 
 school_quest = Quest.create(reward: 50, cost: 0, karma: 0, req_karma: 0, req_age: 0, req_time: 5, description: "learn all the things", title: "go to school")
+advanced_quest = Quest.create(reward: 50, cost: 0, karma: 0, req_karma: 0, req_age: 500, req_time: 5, description: "learn all the things", title: "go to high school")
 school_quest_req = QuestItemRule.create(item: pencil, quantity: 3, quest: school_quest, rule: QuestItemRule.rules[:requirement])
 lemonade_stand_quest = Quest.create(reward: 50, cost: 0, req_age: 0, req_time: 5, description: "Your mommy helps you out and you put up a legit lemonde stand!", title: "lemonade stand")
 lemonade_stand_quest_req = QuestItemRule.create(item: lemon, quest: lemonade_stand_quest, quantity: 5, rule: QuestItemRule.rules[:requirement])

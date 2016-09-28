@@ -8,4 +8,7 @@ class User < ApplicationRecord
   def get_accessible_stores
     Store.where("min_age <= :age", {age: self.age})
   end
+  def get_eligible_quests
+    Quest.get_quests_by_age(self)
+  end
 end

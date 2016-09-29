@@ -10,7 +10,8 @@ class QuestList extends Component {
       return (
         <Quest
           key={quest.id}
-          quest={quest} />
+          quest={quest}
+          processQuest={this.props.startQuest} />
       )
     })
     if (quests.length == 0){

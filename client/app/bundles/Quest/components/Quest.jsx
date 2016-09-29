@@ -6,7 +6,7 @@ class Quest extends Component {
     super(props)
   }
   onClick(){
-    console.log("cliiiicked");
+    this.props.processQuest()
   }
   render(){
     let {title} = this.props.quest

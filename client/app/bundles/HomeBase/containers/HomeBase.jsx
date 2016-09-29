@@ -10,6 +10,9 @@ class HomeBase extends Component {
     super(props, context);
     this.state = {};
   }
+  startQuest(){
+    console.log("coming from the cooontaainer");
+  }
   render() {
     return (
       <div>
@@ -20,7 +23,8 @@ class HomeBase extends Component {
           money={this.props.user.money}/>
         <h2>Available Tasks</h2>
         <QuestList
-          quests={this.props.eligible_quests}/>
+          quests={this.props.eligible_quests}
+          startQuest={this.startQuest.bind(this)}/>
       </div>
     );
   }

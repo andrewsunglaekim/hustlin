@@ -6,7 +6,7 @@ class Quest extends Component {
     super(props)
   }
   onClick(){
-    this.props.processQuest()
+    this.props.processQuest(this.props.quest)
   }
   render(){
     let {title} = this.props.quest

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import UserInventory from '../../Inventory/containers/UserInventory'
 import QuestList from '../../Quest/containers/QuestList'
-
+import QuestModel from '../../../models/quest'
 
 // Simple example of a React "smart" component
 class HomeBase extends Component {
@@ -10,8 +10,8 @@ class HomeBase extends Component {
     super(props, context);
     this.state = {};
   }
-  startQuest(){
-    console.log("coming from the cooontaainer");
+  startQuest(quest){
+    QuestModel.startQuest(quest.id)
   }
   render() {
     return (

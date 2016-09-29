@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'rails-erd'
 gem 'pry'
 gem 'react_on_rails' , '~>6'
 gem 'devise'

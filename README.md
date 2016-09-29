@@ -12,3 +12,5 @@ $ foreman start -f Procfile.dev
 
 Login as any user in seed file (ex. user: user1@email.com, password: password)
 and visit http://localhost:3000/home
+
+![hustlin_erd](erd.pdf)

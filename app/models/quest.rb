@@ -5,11 +5,10 @@ class Quest < ApplicationRecord
     quests = where("req_age <= :age", {age: user.age})
     eligible_quests = []
     quests.each do |quest|
-      # TODO: can only implement one requirement for quest
       is_eligible_quest = false
       requirements = QuestItemRule.where(quest: quest, rule: QuestItemRule.rules[:requirement])
-      player_item = PlayerItem.find_by(user: user, item: rule.item)
-      if player_item && player_item.quantity >= rule.quantity
+      met_requirements = requirements.select {|requirement| requirement.is_eligible_by_player user}
+      if requirements.length == met_requirements.length
         eligible_quests << quest
       end
     end

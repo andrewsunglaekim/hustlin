@@ -6,9 +6,10 @@ class Quest extends Component {
     super(props)
   }
   render(){
+    let {title} = this.props.quest
     return(
       <div className="quest">
-        This is a quest component
+        <span className="questTitle">{title}</span>
       </div>
     )
   }

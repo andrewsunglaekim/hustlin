@@ -14,7 +14,7 @@ class QuestList extends Component {
       )
     })
     return (
-      <div>
+      <div className="potential quests">
         {quests}
       </div>
     )

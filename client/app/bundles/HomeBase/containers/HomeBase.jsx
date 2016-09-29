@@ -14,9 +14,13 @@ class HomeBase extends Component {
     return (
       <div>
         <h1>My Home</h1>
-        <h2>My Money: {this.props.user.money}</h2>
-        <UserInventory items={this.props.player_items}/>
-        <QuestList quests={this.props.eligible_quests}/>
+        <h2>My Inventory</h2>
+        <UserInventory
+          items={this.props.player_items}
+          money={this.props.user.money}/>
+        <h2>Available Tasks</h2>
+        <QuestList
+          quests={this.props.eligible_quests}/>
       </div>
     );
   }

@@ -4,6 +4,7 @@ import UserInventory from '../../Inventory/containers/UserInventory'
 // Simple example of a React "smart" component
 class HomeBase extends Component {
   constructor(props, context) {
+    console.log(props);
     super(props, context);
     this.state = {};
   }

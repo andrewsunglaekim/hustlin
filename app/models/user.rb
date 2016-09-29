@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   include UserConcern
+  has_many :player_quests
+  has_many :quests, through: :player_quests
   has_many :player_items, dependent: :destroy
   has_many :items, through: :player_items
   # Include default devise modules. Others available are:

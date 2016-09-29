@@ -6,18 +6,26 @@ class QuestList extends Component {
     super(props)
   }
   render(){
-    var quests = this.props.quests.map((quest)=> {
+    let quests = this.props.quests.map((quest)=> {
       return (
         <Quest
           key={quest.id}
           quest={quest} />
       )
     })
-    return (
-      <div className="potential quests">
-        {quests}
-      </div>
-    )
+    if (quests.length == 0){
+      return (
+        <div className="noTasks">
+          You can’t do shit get some pencils and go to school
+        </div>
+      )
+    } else {
+      return (
+        <div className="potential quests">
+          {quests}
+        </div>
+      )
+    }
   }
 }
 

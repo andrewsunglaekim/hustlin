@@ -5,11 +5,15 @@ class Quest extends Component {
     console.log("props coming from quest component: ", props);
     super(props)
   }
+  onClick(){
+    console.log("cliiiicked");
+  }
   render(){
     let {title} = this.props.quest
     return(
       <div className="quest">
         <span className="questTitle">{title}</span>
+        <span onClick={() => this.onClick()} className="taskButton">Get Started On this Task</span>
       </div>
     )
   }

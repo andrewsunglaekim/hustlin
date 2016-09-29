@@ -5,7 +5,11 @@ module UserConcern
   end
 
   def check_quests
-    puts "something happened"
-    puts self.age
+    self.player_quests.each do |player_quest|
+      if self.age >= player_quest.completion_age
+        # complete quest
+      end
+
+    end
   end
 end

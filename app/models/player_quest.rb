@@ -6,4 +6,8 @@ class PlayerQuest < ApplicationRecord
   def update_starting_age
     self.starting_age = self.user.age
   end
+
+  def completion_age
+    self.starting_age + self.quest.req_time
+  end
 end

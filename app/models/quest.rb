@@ -12,6 +12,6 @@ class Quest < ApplicationRecord
         eligible_quests << quest
       end
     end
-    eligible_quests
+    where(id: eligible_quests.map(&:id))
   end
 end

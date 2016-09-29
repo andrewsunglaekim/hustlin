@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include UserConcern
   has_many :player_items, dependent: :destroy
   has_many :items, through: :player_items
   # Include default devise modules. Others available are:
@@ -9,7 +10,7 @@ class User < ApplicationRecord
     Store.where("min_age <= :age", {age: self.age})
   end
   def get_eligible_quests
-    Quest.get_quests_by_age(self)
+    Quest.get_quests_by_user(self)
   end
   def increment_age time
     self.age += time

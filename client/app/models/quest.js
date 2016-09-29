@@ -2,8 +2,12 @@ import axios from 'axios'
 
 class Quest {
   static startQuest(questId){
-    // let request = axios.post
-    console.log(questId);
+    let request = axios({
+      method: 'post',
+      url: 'player_quest',
+      data: {questId: questId}
+    })
+    return request
   }
 }
 

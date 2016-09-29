@@ -11,4 +11,8 @@ class User < ApplicationRecord
   def get_eligible_quests
     Quest.get_quests_by_age(self)
   end
+  def increment_age time
+    self.age += time
+    self.save
+  end
 end

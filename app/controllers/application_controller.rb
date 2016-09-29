@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   # TODO: make a private method that increments age(through arg) when implementing aging feature
   private
   def increment_age time
-    current_user.age += time
+    current_user.increment_age time
   end
 end

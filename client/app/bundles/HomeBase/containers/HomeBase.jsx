@@ -3,6 +3,7 @@ import UserInventory from '../../Inventory/containers/UserInventory'
 import QuestList from '../../Quest/containers/QuestList'
 import QuestModel from '../../../models/quest'
 import Waiting from '../../Actions/components/Waiting'
+import Action from '../../../models/action'
 
 // Simple example of a React "smart" component
 class HomeBase extends Component {
@@ -11,21 +12,20 @@ class HomeBase extends Component {
     super(props, context);
     this.state = {
       player_items: this.props.player_items,
-      money: this.props.user.money,
+      user: this.props.user,
       eligible_quests: this.props.eligible_quests,
       current_quests: this.props.current_quests
     };
   }
   startQuest(quest){
     QuestModel.startQuest(quest.id).then((res) => {
-      this.setState({
-        current_quests: res.data.current_quests,
-        eligible_quests: res.data.eligible_quests
-      })
+      this.setState(res.data)
     })
   }
   ageUser(time){
-    console.log(time);
+    Action.ageUser(time).then(res => {
+      this.setState(res.data)
+    })
   }
   render() {
     return (
@@ -34,7 +34,7 @@ class HomeBase extends Component {
         <h2>My Inventory</h2>
         <UserInventory
           items={this.state.player_items}
-          money={this.state.money}/>
+          money={this.state.user.money}/>
         <h2>Available Tasks</h2>
         <QuestList
           quests={this.state.eligible_quests}

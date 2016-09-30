@@ -16,8 +16,11 @@ class HomeBase extends Component {
     };
   }
   startQuest(quest){
-    QuestModel.startQuest(quest.id).then(function(res){
-      console.log(res);
+    QuestModel.startQuest(quest.id).then((res) => {
+      this.setState({
+        current_quests: res.data.current_quests,
+        eligible_quests: res.data.eligible_quests
+      })
     })
   }
   render() {

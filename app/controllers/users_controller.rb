@@ -8,7 +8,8 @@ class UsersController < ApplicationController
       user: current_user,
       eligible_quests: current_user.get_eligible_quests,
       current_quests: current_user.player_quests.map{|player_quest| player_quest.quest},
-      stores: current_user.get_accessible_stores
+      stores: current_user.get_accessible_stores,
+      player_items: current_user.react_player_items
     }
     render json: data
   end

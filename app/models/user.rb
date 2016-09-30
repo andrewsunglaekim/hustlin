@@ -18,4 +18,14 @@ class User < ApplicationRecord
     self.age += time
     self.save
   end
+  def react_player_items
+    self.player_items.map do |player_item|
+      {
+        id: player_item.id,
+        name: player_item.item.name,
+        quantity: player_item.quantity,
+        value: player_item.item.value
+      }
+    end
+  end
 end

@@ -5,7 +5,7 @@ class GameController < ApplicationController
     @eligible_quests = current_user.get_eligible_quests
     @current_quests = current_user.player_quests.map{|player_quest| player_quest.quest}
     @stores = current_user.get_accessible_stores
-    @player_items = get_player_items
+    @player_items = current_user.react_player_items
     @homebase_props = {
       user: @user,
       eligible_quests: @eligible_quests,
@@ -15,7 +15,7 @@ class GameController < ApplicationController
   end
 
   def store
-    @player_items = get_player_items
+    @player_items = current_user.react_player_items
     # TODO: obviously can't do Store.first, make multiple stores going forward, open up as you progress in the game
     @store = Store.find(params[:id])
     @store_items = @store.store_items.map do |store_item|
@@ -33,16 +33,5 @@ class GameController < ApplicationController
       player_items: @player_items,
       store_items: @store_items
     }
-  end
-  private
-  def get_player_items
-    current_user.player_items.map do |player_item|
-      {
-        id: player_item.id,
-        name: player_item.item.name,
-        quantity: player_item.quantity,
-        value: player_item.item.value
-      }
-    end
   end
 end

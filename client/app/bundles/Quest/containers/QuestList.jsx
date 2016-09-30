@@ -14,10 +14,16 @@ class QuestList extends Component {
           processQuest={this.props.startQuest} />
       )
     })
-    if (quests.length == 0){
+    if (quests.length == 0 && this.props.startQuest){
       return (
         <div className="noTasks">
           You can’t do shit get some pencils and go to school
+        </div>
+      )
+    } else if(quests.length == 0){
+      return (
+        <div className="noCurrentTasks">
+          You should find something to do...
         </div>
       )
     } else {

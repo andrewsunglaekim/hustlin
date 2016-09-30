@@ -8,7 +8,7 @@ class Quest < ApplicationRecord
       is_eligible_quest = false
       requirements = QuestItemRule.where(quest: quest, rule: QuestItemRule.rules[:requirement])
       met_requirements = requirements.select {|requirement| requirement.is_eligible_by_player user}
-      if requirements.length == met_requirements.length
+      if requirements.length == met_requirements.length && !PlayerQuest.find_by(user: user, quest: quest)
         eligible_quests << quest
       end
     end

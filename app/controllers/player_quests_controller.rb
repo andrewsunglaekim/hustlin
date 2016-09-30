@@ -4,6 +4,7 @@ class PlayerQuestsController < ApplicationController
     PlayerQuest.create!(user: current_user, quest: quest)
     current_quests = current_user.player_quests.map{|player_quest| player_quest.quest }
     data = {
+      player_items: current_user.react_player_items,
       eligible_quests: current_user.get_eligible_quests,
       current_quests: current_quests
     }

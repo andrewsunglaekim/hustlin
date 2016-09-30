@@ -1,10 +1,20 @@
 class PlayerQuest < ApplicationRecord
   belongs_to :user
   belongs_to :quest
-  before_save :update_starting_age
+  before_save :update_starting_age, :spend_item
 
   def update_starting_age
     self.starting_age = self.user.age
+  end
+
+  def spend_item
+    quest = self.quest
+    cost_quest_item_rules = quest.quest_item_rules.cost
+    cost_quest_item_rules.each do |rule|
+      player_item = PlayerItem.find_by(user: self.user, item: rule.item)
+      player_item.quantity -= rule.quantity
+      player_item.save
+    end
   end
 
   def completion_age

@@ -28,7 +28,7 @@ class PlayerQuest < ApplicationRecord
   def reward_items
     quest_rewards = self.quest.quest_item_rules.reward
     quest_rewards.each do |reward|
-      player_item = PlayerItem.find_or_create_by(user: self.user, item: reward.item)
+      player_item = PlayerItem.find_or_initialize_by(user: self.user, item: reward.item)
       player_item.quantity += reward.quantity
       player_item.save
     end

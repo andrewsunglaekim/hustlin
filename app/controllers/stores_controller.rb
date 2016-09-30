@@ -16,7 +16,7 @@ class StoresController < ApplicationController
     current_user.reload
     current_user.money -= money_spent
     current_user.save
-    @player_item = PlayerItem.find_or_create_by(user: current_user, item: @item)
+    @player_item = PlayerItem.find_or_initialize_by(user: current_user, item: @item)
     @player_item.quantity += quantity
     @player_item.save
     data = {
@@ -44,7 +44,7 @@ class StoresController < ApplicationController
     money_gained = quantity * (@item.value * 0.75).to_i
     current_user.money += money_gained
     current_user.save
-    @store_item = StoreItem.find_or_create_by(store: @store, item: @item)
+    @store_item = StoreItem.find_or_initialize_by(store: @store, item: @item)
     @store_item.quantity += quantity
     @store_item.save
     data = {

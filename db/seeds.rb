@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+QuestItemRule.destroy_all
 User.destroy_all
 Item.destroy_all
 Store.destroy_all
@@ -23,7 +23,7 @@ hot_wheels = Item.create(name: "hot wheels", value: 8, karma: 0)
 teddy_bear = Item.create(name: "teddy bear", value: 15, karma: 1)
 
 
-child_store_items = [pencil, lemon, pog, pog_slammer, bubble_gum, hot_wheels, teddy_bear]
+child_store_items = [pencil, lemon, pog, pog_slammer, bubble_gum, hot_wheels, teddy_bear, candy_cigarette]
 child_store = Store.create(name: "KB Toystore", karma: nil, min_age: 0)
 child_store_items.each do |item|
   StoreItem.create(store: child_store, item: item, quantity: 30)
@@ -43,3 +43,10 @@ school_quest_req = QuestItemRule.create(item: pencil, quantity: 3, quest: school
 lemonade_stand_quest = Quest.create(reward: 50, cost: 0, req_age: 0, req_time: 5, description: "Your mommy helps you out and you put up a legit lemonde stand!", title: "lemonade stand")
 lemonade_stand_quest_req = QuestItemRule.create(item: lemon, quest: lemonade_stand_quest, quantity: 5, rule: QuestItemRule.rules[:requirement])
 lemonade_stand_quest_cost = QuestItemRule.create(item: lemon, quest: lemonade_stand_quest, quantity: 5, rule: QuestItemRule.rules[:cost])
+candy_mogul_quest = Quest.create(reward: 50, cost: 0, req_age: 0, req_time: 10, description: "Dealin that sweet sweet candy", title: "Sell candy to kids")
+candy_mogul_quest_req = QuestItemRule.create(item: candy_cigarette, quantity: 3, quest: candy_mogul_quest, rule: QuestItemRule.rules[:requirement])
+candy_mogul_quest_req1 = QuestItemRule.create(item: bubble_gum, quantity: 3, quest: candy_mogul_quest, rule: QuestItemRule.rules[:requirement])
+candy_mogul_quest_cost = QuestItemRule.create(item: candy_cigarette, quantity: 3, quest: candy_mogul_quest, rule: QuestItemRule.rules[:cost])
+candy_mogul_quest_cost1 = QuestItemRule.create(item: bubble_gum, quantity: 3, quest: candy_mogul_quest, rule: QuestItemRule.rules[:cost])
+candy_mogul_quest_rew = QuestItemRule.create(item: hot_wheels, quantity: 5, quest: candy_mogul_quest, rule: QuestItemRule.rules[:reward])
+candy_mogul_quest_rew1 = QuestItemRule.create(item: pog_slammer, quantity: 5, quest: candy_mogul_quest, rule: QuestItemRule.rules[:reward])

@@ -3,7 +3,7 @@ class GameController < ApplicationController
   def homebase
     @user = current_user
     @eligible_quests = current_user.get_eligible_quests
-    @current_quests = current_user.player_quests
+    @current_quests = current_user.player_quests.map{|player_quest| player_quest.quest}
     @stores = current_user.get_accessible_stores
     @player_items = get_player_items
     @homebase_props = {

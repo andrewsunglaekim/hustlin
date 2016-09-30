@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import UserInventory from '../../Inventory/containers/UserInventory'
 import QuestList from '../../Quest/containers/QuestList'
 import QuestModel from '../../../models/quest'
+import Waiting from '../../Actions/components/Waiting'
 
 // Simple example of a React "smart" component
 class HomeBase extends Component {
@@ -23,6 +24,9 @@ class HomeBase extends Component {
       })
     })
   }
+  ageUser(time){
+    console.log(time);
+  }
   render() {
     return (
       <div>
@@ -38,6 +42,9 @@ class HomeBase extends Component {
         <h2>Current Tasks</h2>
         <QuestList
           quests={this.state.current_quests}/>
+        <h2>Wait Around</h2>
+        <Waiting
+          onAgeUser={this.ageUser.bind(this)}/>
       </div>
     );
   }

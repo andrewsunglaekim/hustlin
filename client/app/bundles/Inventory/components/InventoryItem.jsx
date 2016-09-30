@@ -42,7 +42,9 @@ class InventoryItem extends Component {
     if(this.props.itemType === "store"){
       return (
         <div className="item store">
-          <span>{name}</span><span>Quantity: {quantity}</span>
+          <span>{name}</span>
+          <span>Quantity: {quantity}</span>
+          <span>Value: {value}</span>
           <form onSubmit={e => this.onSubmit(e)} >
             <input
               type="text"
@@ -52,9 +54,12 @@ class InventoryItem extends Component {
         </div>
       )
     } else if (this.props.itemType === "userInStore") {
+      value = parseInt(0.75 * value)
       return (
         <div>
-          <span>{name}</span><span>Quantity: {quantity}</span>
+          <span>{name}</span>
+          <span>Quantity: {quantity}</span>
+          <span>Value: {value}</span>
           <form onSubmit={e => this.onSubmit(e)} >
             <input
               type="text"
@@ -66,7 +71,9 @@ class InventoryItem extends Component {
     } else {
       return(
         <div className="item">
-          <span>{name}</span><span>Quantity: {quantity}</span>
+          <span>{name}</span>
+          <span>Quantity: {quantity}</span>
+          <span>Value: {value}</span>
         </div>
       )
     }

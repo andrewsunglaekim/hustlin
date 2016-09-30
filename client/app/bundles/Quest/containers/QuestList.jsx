@@ -17,7 +17,7 @@ class QuestList extends Component {
     if (quests.length == 0 && this.props.startQuest){
       return (
         <div className="noTasks">
-          You can’t do shit get some pencils and go to school
+          You can’t do shit! Get some pencils and go to school
         </div>
       )
     } else if(quests.length == 0){
@@ -28,7 +28,7 @@ class QuestList extends Component {
       )
     } else {
       return (
-        <div className="potential quests">
+        <div className="quests">
           {quests}
         </div>
       )

@@ -10,12 +10,20 @@ class Quest extends Component {
   }
   render(){
     let {title} = this.props.quest
-    return(
-      <div className="quest">
-        <span className="questTitle">{title}</span>
-        <span onClick={() => this.onClick()} className="taskButton">Get Started On this Task</span>
-      </div>
-    )
+    if (this.props.processQuest) {
+      return(
+        <div className="quest">
+          <span className="questTitle">{title}</span>
+          <span onClick={() => this.onClick()} className="taskButton">Get Started On this Task</span>
+        </div>
+      )
+    } else {
+      return (
+        <div className="quest">
+          <span className="questTitle">{title}</span>
+        </div>
+      )
+    }
   }
 }
 

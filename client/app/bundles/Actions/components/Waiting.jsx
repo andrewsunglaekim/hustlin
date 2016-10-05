@@ -26,9 +26,12 @@ class Waiting extends Component {
       <div>
         <form onSubmit={e => this.onSubmit(e)}>
           <input
+            className="waitInput"
             type='text'
             onChange={e => this.onChange(e)}
-            value={this.state.time}/>
+            value={this.state.time}
+            placeholder="Enter the # of days to wait."
+            />
         </form>
       </div>
     )

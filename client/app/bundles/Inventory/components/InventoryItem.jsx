@@ -41,13 +41,14 @@ class InventoryItem extends Component {
     let {name, quantity, value} = this.props.item
     if(this.props.itemType === "store"){
       return (
-        <div className="item store">
+        <div className="storeItems">
           <span>{name}</span>
-          <span>Quantity: {quantity}</span>
-          <span>Value: {value}</span>
+          <span className="quant">Quantity: {quantity}</span>
+          <span className="value">Value: {value}</span>
           <form onSubmit={e => this.onSubmit(e)} >
             <input
               type="text"
+              placeholder="Enter quantity to buy."
               onChange={e => this.onChange(e)}
               value={(this.state.quantity)}/>
           </form>
@@ -58,11 +59,12 @@ class InventoryItem extends Component {
       return (
         <div>
           <span>{name}</span>
-          <span>Quantity: {quantity}</span>
-          <span>Value: {value}</span>
+          <span className="quant">Quantity: {quantity}</span>
+          <span className="value">Value: {value}</span>
           <form onSubmit={e => this.onSubmit(e)} >
             <input
               type="text"
+              placeholder="Enter quantity to sell."
               onChange={e => this.onChange(e)}
               value={(this.state.quantity)}/>
           </form>
@@ -72,8 +74,8 @@ class InventoryItem extends Component {
       return(
         <div className="item">
           <span>{name}</span>
-          <span>Quantity: {quantity}</span>
-          <span>Value: {value}</span>
+          <span className="quant">Quantity: {quantity}</span>
+          <span className="value">Value: {value}</span>
         </div>
       )
     }

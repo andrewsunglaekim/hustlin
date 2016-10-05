@@ -17,7 +17,7 @@ class QuestList extends Component {
     if (quests.length == 0 && this.props.startQuest){
       return (
         <div className="noTasks">
-          You can’t do shit! Get some pencils and go to school
+          <p> You can’t do shit! <a href="/store/1"> Get some pencils </a> and go to school. </p>
         </div>
       )
     } else if(quests.length == 0){

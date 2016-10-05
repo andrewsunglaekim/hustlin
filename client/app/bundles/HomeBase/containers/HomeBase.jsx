@@ -31,10 +31,14 @@ class HomeBase extends Component {
     return (
       <div>
         <h1>My Home</h1>
+        <h2> Stores In Your Area </h2>
+        {/* this is hard coded and should be dynamically generated eventually */}
+        <a href="/store/1"> <button className="store">  KB Toys </button> </a>
         <h2>My Inventory</h2>
         <UserInventory
           items={this.state.player_items}
           money={this.state.user.money}/>
+        <div className="fullQuests">
         <h2>Available Tasks</h2>
         <QuestList
           quests={this.state.eligible_quests}
@@ -42,9 +46,12 @@ class HomeBase extends Component {
         <h2>Current Tasks</h2>
         <QuestList
           quests={this.state.current_quests}/>
+          </div>
+        <div className="waitAround">
         <h2>Wait Around</h2>
         <Waiting
           onAgeUser={this.ageUser.bind(this)}/>
+        </div>
       </div>
     );
   }

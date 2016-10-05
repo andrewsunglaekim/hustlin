@@ -59,13 +59,14 @@ class Store extends Component{
     return (
       <div>
         <div className="userInventory">
+        <h2> Current Inventory </h2>
           <UserInventory
             money={this.state.userMoney}
             items={this.state.playerItems}
             itemType={"userInStore"}
             onPurchaseItem={this.purchaseItem.bind(this)}/>
         </div>
-        <div className="store">
+        <div className="storeItemsFull">
           <StoreInventory
             name={this.props.name}
             playerMoney={this.state.userMoney}

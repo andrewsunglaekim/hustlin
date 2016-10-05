@@ -17,7 +17,7 @@ class UserInventory extends Component {
     }.bind(this))
     return (
       <div className="player items">
-        <h3>My Money: {this.props.money}</h3>
+        <h3 className="myMoney">My Money: {this.props.money}</h3>
         <div className="items">
           {inventoryItems}
         </div>

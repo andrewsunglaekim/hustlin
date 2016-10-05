@@ -17,7 +17,7 @@ class StoreInventory extends Component {
       )
     })
     return(
-      <div className="store items">
+      <div>
         <h2>{this.props.name}</h2>
         {inventoryItems}
       </div>

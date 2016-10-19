@@ -9,5 +9,10 @@
     "postinstall": "cd client && npm install",
     "rails-server": "echo 'visit http://localhost:3000/hello_world' && foreman start -f Procfile.dev",
     "test": "rspec"
+  },
+  "dependencies": {
+    "history": "^4.3.0",
+    "imports-loader": "^0.6.5",
+    "react-router": "^2.8.1"
   }
 }

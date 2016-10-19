@@ -10,7 +10,6 @@ class Quest extends Component {
   }
   render(){
     let {title, req_time} = this.props.quest
-    console.log(req_time);
     if (this.props.processQuest) {
       return(
         <div className="quest">

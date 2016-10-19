@@ -4,6 +4,7 @@ import QuestList from '../../Quest/containers/QuestList'
 import QuestModel from '../../../models/quest'
 import Waiting from '../../Actions/components/Waiting'
 import Action from '../../../models/action'
+import StoreList from '../components/StoreList'
 
 // Simple example of a React "smart" component
 class HomeBase extends Component {
@@ -14,7 +15,8 @@ class HomeBase extends Component {
       player_items: this.props.player_items,
       user: this.props.user,
       eligible_quests: this.props.eligible_quests,
-      current_quests: this.props.current_quests
+      current_quests: this.props.current_quests,
+      eligible_stores: this.props.eligible_stores
     };
   }
   startQuest(quest){
@@ -31,9 +33,8 @@ class HomeBase extends Component {
     return (
       <div>
         <h1>My Home</h1>
-        <h2> Stores In Your Area </h2>
-        {/* this is hard coded and should be dynamically generated eventually */}
-        <a href="/store/1"> <button className="store">  KB Toys </button> </a>
+        <StoreList
+          stores={this.state.eligible_stores}/>
         <h2>My Inventory</h2>
         <UserInventory
           items={this.state.player_items}

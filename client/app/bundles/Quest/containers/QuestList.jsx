@@ -6,6 +6,7 @@ class QuestList extends Component {
     super(props)
   }
   render(){
+    // TODO: consider hints for progression, but removes anchor from you can't do shit
     let quests = this.props.quests.map((quest)=> {
       return (
         <Quest
@@ -17,7 +18,7 @@ class QuestList extends Component {
     if (quests.length == 0 && this.props.startQuest){
       return (
         <div className="noTasks">
-          <p> You can’t do shit! <a href="/store/1"> Get some pencils </a> and go to school. </p>
+          <p> You can’t do shit! Get some pencils and go to school. </p>
         </div>
       )
     } else if(quests.length == 0){

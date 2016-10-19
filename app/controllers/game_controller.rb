@@ -2,12 +2,13 @@ class GameController < ApplicationController
   before_action :authenticate_user!
   def homebase
     @user = current_user
+    @stores = current_user.get_accessible_stores
     @homebase_props = {
       user: @user,
       eligible_quests: @user.get_eligible_quests,
       current_quests: @user.player_quests.map{|player_quest| player_quest.quest},
       player_items: @user.react_player_items,
-      eligible_stores: @user.eligible_stores
+      eligible_stores: @user.get_accessible_stores
     }
   end
 

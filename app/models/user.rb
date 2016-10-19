@@ -19,9 +19,6 @@ class User < ApplicationRecord
     self.save
   end
   # TODO: do we need this to be a join table?
-  def eligible_stores
-    stores = Store.where("min_age < ?", self.age)
-  end
   def react_player_items
     self.player_items.map do |player_item|
       {

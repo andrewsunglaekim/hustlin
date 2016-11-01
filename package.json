@@ -14,5 +14,9 @@
     "history": "^4.3.0",
     "imports-loader": "^0.6.5",
     "react-router": "^2.8.1"
-  }
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ]
 }
